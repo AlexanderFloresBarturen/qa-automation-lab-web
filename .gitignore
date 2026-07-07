@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Build
+dist/
+
+# IDE
+.vscode/
+
+# Python
+__pycache__/
+
+# macOS
+.DS_Store
