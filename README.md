@@ -68,7 +68,7 @@ Por este motivo, las decisiones de desarrollo estarán orientadas a generar esce
 ## Arquitectura Prevista
 
 ```text
-Frontend (React)
+  Frontend (React)
         │
         ▼
     Services
@@ -119,7 +119,7 @@ Playwright / Selenium
 * Manejo de sesión.
 * Protección de rutas.
 
-⸻
+---
 
 ### Sprint 2 — Gestión de Usuarios
 
