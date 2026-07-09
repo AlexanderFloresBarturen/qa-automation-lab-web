@@ -1,10 +1,5 @@
-function App() {
-  return (
-    <main>
-      <h1>QA Automation Lab Web</h1>
-      <p>Frontend project successfully initialized.</p>
-    </main>
-  )
-}
+import { AppRouter } from './router'
 
-export default App
+export function App() {
+  return <AppRouter />
+}

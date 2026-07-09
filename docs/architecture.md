@@ -138,17 +138,20 @@ Siempre que sea posible, una feature no debe depender directamente de otra.
 ```text
 features/
 │
-└── users/
+└── auth/
     ├── api/
     ├── components/
     ├── hooks/
     ├── pages/
+    ├── schemas/
+    ├── storage/
     ├── types/
-    ├── constants/
     └── index.ts
 ```
 
-Toda la lógica relacionada con Usuarios deberá permanecer dentro de esta carpeta.
+Toda la lógica relacionada con Autorización deberá permanecer dentro de esta carpeta.
+
+>No todas las funcionalidades deberán contener todas las carpetas. Cada Feature solo incorporará los módulos que realmente necesite. Se evita la creación de archivos o directorios sin una responsabilidad concreta.
 
 ---
 
@@ -163,8 +166,10 @@ Responsable de:
 - Login.
 - Logout.
 - Gestión de sesión.
-- Manejo del JWT.
-
+- Protección de rutas.
+- Gestión del JWT.
+- Comunicación con la API de autenticación.
+- Persistencia del token de acceso.
 ---
 
 ### Users
@@ -206,14 +211,17 @@ Nada dentro de esta carpeta debe contener lógica de negocio.
 
 ### api/
 
-Infraestructura de comunicación con el Backend.
+Infraestructura compartida para la comunicación HTTP.
 
-Ejemplos:
+Incluye, entre otros:
 
-- Cliente HTTP.
-- Configuración de Axios.
-- Interceptores.
+- Cliente HTTP (Axios).
 - Configuración de la API.
+- Configuración de variables de entorno.
+- Manejo centralizado de errores.
+- Tipos compartidos de infraestructura.
+
+> Ninguna Feature deberá comunicarse directamente con Axios. Toda petición deberá realizarse a través de esta capa.
 
 ---
 
@@ -325,6 +333,50 @@ Estas restricciones permiten mantener un bajo acoplamiento y facilitan el manten
 
 ---
 
+## Reglas Arquitectónicas
+
+* Cada Feature es responsable de su propia lógica de negocio.
+* Ninguna página (pages) podrá acceder directamente a la infraestructura.
+* Las páginas deberán comunicarse únicamente mediante hooks o componentes de la Feature correspondiente.
+* Ninguna Feature podrá acceder directamente a axios.
+* Ninguna Feature podrá acceder directamente a localStorage.
+* Ninguna Feature podrá leer directamente import.meta.env.
+* Toda comunicación HTTP deberá realizarse mediante shared/api.
+* Toda gestión de la sesión deberá realizarse mediante los módulos de features/auth/storage.
+* Se evitará crear componentes, hooks o carpetas que todavía no tengan una responsabilidad real.
+
+---
+
+## Arquitectura de Autenticación
+
+La autenticación sigue una arquitectura por capas.
+
+```text
+Login
+↓
+useLoginForm
+↓
+useLogin
+↓
+authApi
+↓
+httpClient
+↓
+Backend
+```
+
+Las responsabilidades quedan distribuidas de la siguiente forma:
+
+* Login: interfaz de usuario.
+* useLoginForm: gestión del formulario y validaciones.
+* useLogin: orquestación del caso de uso de autenticación.
+* authApi: comunicación con los endpoints de autenticación.
+* tokenStorage: persistencia del JWT.
+* useAuth: consulta del estado de autenticación.
+* ProtectedRoute / GuestRoute: control de acceso a las rutas.
+
+---
+
 ## Filosofía de Testing
 
 La arquitectura fue diseñada pensando en la automatización de pruebas desde el inicio.
@@ -355,6 +407,8 @@ La estructura de las pruebas deberá reflejar la estructura de la aplicación si
 ---
 
 ## Filosofía del Proyecto
+
+>Se evitará la abstracción prematura. Los componentes, hooks, utilidades y estructuras solo se crearán cuando exista una necesidad real demostrada por el desarrollo de la aplicación.
 
 Este proyecto no busca demostrar habilidades avanzadas de diseño visual.
 
