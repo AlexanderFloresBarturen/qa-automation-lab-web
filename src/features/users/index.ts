@@ -1,1 +1,5 @@
 export { Users } from './pages/Users'
+export type { UserResponse } from './types'
+export { usersApi } from './api'
+export { useUsers } from './hooks'
+export { UsersTable } from './components'

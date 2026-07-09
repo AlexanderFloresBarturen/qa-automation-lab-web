@@ -1,3 +1,15 @@
+import { useUsers, UsersTable } from '@/features/users'
+
 export function Users() {
-  return <h1>Users</h1>
+  const { users, isLoading, error } = useUsers()
+
+  if (isLoading) {
+    return <p>Cargando usuarios...</p>
+  }
+
+  if (error) {
+    return <p>{error}</p>
+  }
+
+  return <UsersTable users={users} />
 }
