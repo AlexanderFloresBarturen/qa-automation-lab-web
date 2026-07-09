@@ -9,6 +9,7 @@ import {
   Users,
 } from '@/features'
 import { AuthLayout, MainLayout } from '../layouts'
+import { ProtectedRoute, GuestRoute } from '@/features/auth'
 
 export function AppRouter() {
   return (
@@ -20,14 +21,18 @@ export function AppRouter() {
         {/* Decide que componente mostrar */}
         {/* Redirección inicial */}
         <Route path="/" element={<Navigate to={PATHS.LOGIN} replace />} />{' '}
-        <Route element={<AuthLayout />}>
-          <Route path={PATHS.LOGIN} element={<Login />} />
-          <Route path={PATHS.FORGOT_PASSWORD} element={<ForgotPassword />} />
-          <Route path={PATHS.RESET_PASSWORD} element={<ResetPassword />} />
+        <Route element={<GuestRoute />}>
+          <Route element={<AuthLayout />}>
+            <Route path={PATHS.LOGIN} element={<Login />} />
+            <Route path={PATHS.FORGOT_PASSWORD} element={<ForgotPassword />} />
+            <Route path={PATHS.RESET_PASSWORD} element={<ResetPassword />} />
+          </Route>
         </Route>
-        <Route element={<MainLayout />}>
-          <Route path={PATHS.DASHBOARD} element={<Dashboard />} />
-          <Route path={PATHS.USERS} element={<Users />} />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<MainLayout />}>
+            <Route path={PATHS.DASHBOARD} element={<Dashboard />} />
+            <Route path={PATHS.USERS} element={<Users />} />
+          </Route>
         </Route>
         <Route path="*" element={<Navigate to={PATHS.LOGIN} replace />} />
       </Routes>

@@ -93,6 +93,10 @@ Actualmente el proyecto utiliza las siguientes herramientas.
 - React
 - TypeScript
 - Vite
+- React Router
+- React Hook Form
+- Zod
+- Axios
 
 ---
 
@@ -237,6 +241,100 @@ Se evita la creación de componentes genéricos innecesarios y el crecimiento de
 
 ---
 
+### ADR-004
+
+#### Título
+
+Separar los casos de uso de la infraestructura.
+
+#### Estado
+
+Aceptada.
+
+#### Contexto
+
+Las funcionalidades de la aplicación requieren comunicarse con el backend y gestionar diferentes recursos de infraestructura (HTTP, almacenamiento local, variables de entorno).
+
+Permitir que las páginas accedan directamente a estos recursos incrementaría el acoplamiento y dificultaría las pruebas.
+
+#### Decisión
+
+Cada caso de uso deberá implementarse mediante hooks especializados.
+
+Las páginas nunca accederán directamente a:
+
+* Axios.
+* Local Storage.
+* Variables de entorno.
+
+La comunicación seguirá siempre la siguiente arquitectura:
+
+```text
+Página
+↓
+Hook
+↓
+API
+↓
+Infraestructura
+↓
+Backend
+```
+
+#### Consecuencias
+
+Ventajas:
+
+* Bajo acoplamiento.
+* Mejor mantenibilidad.
+* Mayor facilidad para pruebas unitarias.
+* Posibilidad de sustituir la infraestructura sin modificar la interfaz de usuario.
+
+---
+
+### ADR-005
+
+#### Título
+
+Centralizar la gestión de autenticación dentro de la Feature Auth.
+
+#### Estado
+
+Aceptada.
+
+#### Contexto
+
+La autenticación implica responsabilidades diferentes:
+
+* Validación de formularios.
+* Comunicación HTTP.
+* Persistencia del JWT.
+* Control de acceso.
+* Gestión de sesión.
+
+Concentrar toda esta lógica en un único componente produciría una alta complejidad.
+
+#### Decisión
+
+La autenticación se divide en módulos especializados.
+
+* useLoginForm
+* useLogin
+* authApi
+* tokenStorage
+* useAuth
+* useLogout
+* ProtectedRoute
+* GuestRoute
+
+Cada módulo posee una única responsabilidad.
+
+#### Consecuencias
+
+La autenticación queda desacoplada de React Router, Axios y Local Storage, facilitando futuras modificaciones como Refresh Tokens o revocación de sesiones.
+
+---
+
 ## Sprint 0
 
 ### Objetivo
@@ -306,26 +404,104 @@ La configuración inicial requirió varios ajustes debido a la reorganización d
 
 ---
 
+## Sprint 1
+
+### Objetivo
+
+Implementar la infraestructura de autenticación de la aplicación.
+
+---
+
+### Trabajo realizado
+
+#### Navagación
+
+* React Router.
+* Layouts públicos y privados.
+* Alias de rutas.
+
+---
+
+#### Formularios
+
+* React Hook Form.
+* Zod.
+* Validaciones tipadas.
+
+---
+
+#### Infraestructura HTTP
+
+* Axios.
+* Cliente HTTP centralizado.
+* Variables de entorno.
+* Configuración compartida.
+
+---
+
+#### Autenticación
+
+* Login.
+* Persistencia del JWT.
+* Gestión del token.
+* Logout.
+* Estado de autenticación.
+* Rutas protegidas.
+* Rutas para invitados.
+
+---
+
+#### Backend
+
+* Integración con FastAPI.
+* Autenticación OAuth2.
+* Consumo del endpoint /login.
+
+---
+
+### Lecciones aprendidas
+
+* La separación entre formulario y caso de uso simplifica considerablemente la mantenibilidad.
+* Centralizar la infraestructura HTTP evita duplicación.
+* La encapsulación de localStorage facilita la evolución futura del mecanismo de autenticación.
+* La protección de rutas debe implementarse mediante componentes especializados y no dentro de las páginas.
+
+---
+
 ## Estado Actual
 
 Sprint actual:
 
-**Sprint 1**
+**Sprint 2**
 
 Infraestructura completada:
 
 - ✅ React
 - ✅ TypeScript
 - ✅ Vite
-- ✅ ESLint
-- ✅ Prettier
+- ✅ React Router
+- ✅ Axios
+- ✅ React Hook Form
+- ✅ Zod
 - ✅ GitHub Actions
 - ✅ Arquitectura Feature-first
-- ✅ Documentación inicial
+- ✅ Sistema de autenticación
+- ✅ Protección de rutas
 
 Próximo objetivo:
 
-Implementar la infraestructura de navegación mediante React Router y comenzar el desarrollo del módulo de Autenticación.
+Implementar el módulo de Gestión de Usuarios (Users), que servirá como base para las pruebas automatizadas y la evolución funcional de la aplicación.
+
+---
+
+## Convenciones de Desarrollo
+
+* Las páginas no deberán acceder directamente a la infraestructura.
+* Los hooks representan casos de uso.
+* La comunicación HTTP se realizará exclusivamente mediante shared/api.
+* La gestión del JWT permanecerá encapsulada en features/auth/storage.
+* Se evitará la creación prematura de componentes reutilizables.
+* Toda nueva funcionalidad deberá mantener el principio de responsabilidad única.
 
 ---
 
