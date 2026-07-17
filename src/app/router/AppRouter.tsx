@@ -7,6 +7,7 @@ import {
   ResetPassword,
   Dashboard,
   Users,
+  CreateUser,
 } from '@/features'
 import { AuthLayout, MainLayout } from '../layouts'
 import { ProtectedRoute, GuestRoute } from '@/features/auth'
@@ -32,6 +33,7 @@ export function AppRouter() {
           <Route element={<MainLayout />}>
             <Route path={PATHS.DASHBOARD} element={<Dashboard />} />
             <Route path={PATHS.USERS} element={<Users />} />
+            <Route path={PATHS.CREATE_USER} element={<CreateUser />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to={PATHS.LOGIN} replace />} />

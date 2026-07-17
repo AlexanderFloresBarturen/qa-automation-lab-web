@@ -9,7 +9,7 @@ export const authApi = {
     body.append('username', request.email)
     body.append('password', request.password)
 
-    const response = await httpClient.post<LoginResponse>('/login', body)
+    const response = await httpClient.post<LoginResponse>('/auth/login', body)
 
     return response.data
   },

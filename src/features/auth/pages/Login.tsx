@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { PATHS } from '@/app/router'
-import { Button, Card, Input } from '@/shared/components'
+import { Button, Card } from '@/shared/components'
 import {
   useLoginForm,
   type LoginFormData,
@@ -10,6 +10,7 @@ import {
 } from '@/features/auth'
 
 import styles from './Login.module.css'
+import { FormField } from '@/shared/components'
 
 export function Login() {
   const {
@@ -33,29 +34,21 @@ export function Login() {
         <h1 className={styles.title}>Login</h1>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="email">Email</label>
-
-          <Input
+          <FormField
             id="email"
+            label="Email"
             type="email"
-            autoComplete="email"
-            {...register('email')}
+            registration={register('email')}
+            error={errors.email?.message}
           />
-          {errors.email && (
-            <p className={styles.error}>{errors.email.message}</p>
-          )}
 
-          <label htmlFor="password">Contraseña</label>
-
-          <Input
+          <FormField
             id="password"
+            label="Password"
             type="password"
-            autoComplete="current-password"
-            {...register('password')}
+            registration={register('password')}
+            error={errors.password?.message}
           />
-          {errors.password && (
-            <p className={styles.error}>{errors.password.message}</p>
-          )}
 
           <Button type="submit">Iniciar sesión</Button>
           <Button type="button" onClick={logout}>

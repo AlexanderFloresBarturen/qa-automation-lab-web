@@ -1,8 +1,8 @@
-import type { UserResponse } from '../../types'
+import type { UserDetailResponse } from '../../types'
 import styles from './UsersTable.module.css'
 
 interface UsersTableProps {
-  users: UserResponse[]
+  users: UserDetailResponse[]
 }
 
 export function UsersTable({ users }: UsersTableProps) {
@@ -13,6 +13,7 @@ export function UsersTable({ users }: UsersTableProps) {
           <th>Nombre</th>
           <th>Correo</th>
           <th>Edad</th>
+          <th>Activo</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +27,7 @@ export function UsersTable({ users }: UsersTableProps) {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.age}</td>
+              <td>{user.is_active ? 'SI' : 'NO'}</td>
             </tr>
           ))
         )}
