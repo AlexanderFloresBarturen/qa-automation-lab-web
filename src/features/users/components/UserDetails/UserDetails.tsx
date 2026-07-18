@@ -1,0 +1,49 @@
+import { Button } from '@/shared/components'
+import type { UserDetailResponse } from '../../types'
+
+import styles from './UserDetails.module.css'
+import { useNavigate } from 'react-router-dom'
+import { PATHS } from '@/app/router'
+
+interface UserDetailsProps {
+  user: UserDetailResponse
+}
+
+export function UserDetails({ user }: UserDetailsProps) {
+  const navigate = useNavigate()
+  return (
+    <section className={styles.container}>
+      <h1 className={styles.title}>Detalle del Usuario</h1>
+
+      <div className={styles.card}>
+        <div className={styles.row}>
+          <span className={styles.label}>Nombre</span>
+          <span className={styles.value}>{user.name}</span>
+        </div>
+
+        <div className={styles.row}>
+          <span className={styles.label}>Email</span>
+          <span className={styles.value}>{user.email}</span>
+        </div>
+
+        <div className={styles.row}>
+          <span className={styles.label}>Edad</span>
+          <span className={styles.value}>{user.age}</span>
+        </div>
+
+        <div className={styles.row}>
+          <span className={styles.label}>Estado</span>
+
+          <span
+            className={`${styles.badge} ${
+              user.is_active ? styles.active : styles.inactive
+            }`}
+          >
+            {user.is_active ? 'Activo' : 'Inactivo'}
+          </span>
+        </div>
+      </div>
+      <Button onClick={() => navigate(PATHS.USERS)}>Volver a Usuarios</Button>
+    </section>
+  )
+}

@@ -2,17 +2,18 @@ import { useNavigate } from 'react-router-dom'
 import { useUsers, UsersTable } from '@/features/users'
 import { PATHS } from '@/app/router'
 import { getApiErrorMessage } from '@/shared/utils'
+import { ErrorMessage, Loading } from '@/shared/components'
 
 export function Users() {
   const { data: users = [], isLoading, error } = useUsers()
   const navigate = useNavigate()
 
   if (isLoading) {
-    return <p>Cargando usuarios...</p>
+    return <Loading />
   }
 
   if (error) {
-    return <p>{getApiErrorMessage(error)}</p>
+    return <ErrorMessage message={getApiErrorMessage(error)} />
   }
 
   return (
