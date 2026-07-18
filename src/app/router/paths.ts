@@ -6,6 +6,8 @@ export const PATHS = {
   USERS: '/users',
   CREATE_USER: '/users/new',
   USER_DETAIL: '/users/:id',
+  USER_EDIT: '/users/:id/edit',
 
   userDetail: (id: number) => `/users/${id}`,
+  userEdit: (id: number) => `/users/${id}/edit`,
 } as const

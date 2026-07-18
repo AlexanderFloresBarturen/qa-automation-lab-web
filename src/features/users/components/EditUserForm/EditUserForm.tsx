@@ -1,19 +1,21 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { createUserSchema, type CreateUserFormData } from '@/features/users'
+import { updateUserSchema, type UpdateUserFormData } from '@/features/users'
 import { Button, FormField } from '@/shared/components'
-import styles from './UserForm.module.css'
-import { useCreateUser } from '../../hooks'
+import styles from './EditUserForm.module.css'
 import type { UserDetailResponse } from '@/features/users'
 import { getApiErrorMessage } from '@/shared/utils'
+import { useUpdateUser } from '@/features/users'
 
 interface UserFormProps {
-  initialValues?: Partial<CreateUserFormData>
+  userId: number
+  initialValues?: Partial<UpdateUserFormData>
   submitLabel?: string
   onSubmitSuccess?: (user: UserDetailResponse) => void
 }
 
-export function UserForm({
+export function EditUserForm({
+  userId,
   initialValues,
   submitLabel = 'Crear Usuario',
   onSubmitSuccess,
@@ -22,24 +24,26 @@ export function UserForm({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateUserFormData>({
-    resolver: zodResolver(createUserSchema),
+  } = useForm<UpdateUserFormData>({
+    resolver: zodResolver(updateUserSchema),
     defaultValues: {
       name: '',
       email: '',
       age: 18,
-      password: '',
       ...initialValues,
     },
   })
 
-  const createUser = useCreateUser()
-  const onSubmit = (data: CreateUserFormData) => {
-    createUser.mutate(data, {
-      onSuccess: (user) => {
-        onSubmitSuccess?.(user)
+  const updatedUser = useUpdateUser()
+  const onSubmit = (data: UpdateUserFormData) => {
+    updatedUser.mutate(
+      { id: userId, data },
+      {
+        onSuccess: (user) => {
+          onSubmitSuccess?.(user)
+        },
       },
-    })
+    )
   }
 
   return (
@@ -64,18 +68,11 @@ export function UserForm({
         registration={register('age', { valueAsNumber: true })}
         error={errors.age?.message}
       />
-      <FormField
-        id="password"
-        label="Password"
-        type="password"
-        registration={register('password')}
-        error={errors.password?.message}
-      />
-      {createUser.isError && (
-        <p className={styles.error}>{getApiErrorMessage(createUser.error)}</p>
+      {updatedUser.isError && (
+        <p className={styles.error}>{getApiErrorMessage(updatedUser.error)}</p>
       )}
-      <Button type="submit" disabled={createUser.isPending}>
-        {createUser.isPending ? `${submitLabel}...` : submitLabel}
+      <Button type="submit" disabled={updatedUser.isPending}>
+        {updatedUser.isPending ? `${submitLabel}...` : submitLabel}
       </Button>
     </form>
   )

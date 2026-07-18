@@ -7,9 +7,12 @@ export function CreateUser() {
 
   return (
     <div>
-      <h1>Create User</h1>
-      <p> Complete the information below to create a new user </p>
-      <UserForm onSuccess={() => navigate(PATHS.USERS)} />
+      <h1>Crear Usuario</h1>
+      <p> Complete la información de abajo para crear un usuario </p>
+      <UserForm
+        submitLabel="Crear Usuario"
+        onSubmitSuccess={() => navigate(PATHS.USERS)}
+      />
     </div>
   )
 }

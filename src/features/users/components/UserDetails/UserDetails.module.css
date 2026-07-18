@@ -53,3 +53,9 @@
   color: #991b1b;
   background: #fee2e2;
 }
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}

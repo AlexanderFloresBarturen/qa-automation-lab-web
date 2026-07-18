@@ -43,7 +43,10 @@ export function UserDetails({ user }: UserDetailsProps) {
           </span>
         </div>
       </div>
-      <Button onClick={() => navigate(PATHS.USERS)}>Volver a Usuarios</Button>
+      <div className={styles.actions}>
+        <Button onClick={() => navigate(PATHS.USERS)}>Volver a Usuarios</Button>
+        <Button onClick={() => navigate(PATHS.userEdit(user.id))}>Editar</Button>
+      </div>
     </section>
   )
 }
