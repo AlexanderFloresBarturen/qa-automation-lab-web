@@ -13,11 +13,41 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
+## Alcance
+
+Este plan cubre las pruebas del frontend del proyecto QA Automation Lab.
+
+### Incluye
+
+- Autenticación
+- Gestión de usuarios
+- Navegación
+- Componentes React
+- Integración con la API mediante mocks (MSW)
+- Flujos End-to-End
+
+### No incluye
+
+- Pruebas de rendimiento
+- Pruebas de seguridad
+- Pruebas de accesibilidad
+
+---
+
+## Objetivos de calidad
+
+- Garantizar el correcto funcionamiento de las funcionalidades críticas.
+- Detectar regresiones durante el desarrollo.
+- Mantener una alta cobertura de pruebas automatizadas.
+- Facilitar la evolución del proyecto mediante una suite de pruebas mantenible.
+
+---
+
 ## Estado
 
-- [ ] Pendiente
-- [~] En progreso
-- [x] Completado
+- ⬜ Pendiente
+- 🟡 En progreso
+- ✅ Completado
 
 ---
 
@@ -44,127 +74,127 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 1. Configuración del entorno
+# 1. Infraestructura de Testing
 
-### 🔴 P0 - Vitest
+## 🔴 P0 - Vitest
 
-- [x] Instalar Vitest
-- [x] Configurar Vitest
-- [x] Configurar jsdom
-- [x] Configurar setup.ts
-- [x] Configurar coverage
-- [x] Ejecutar primer test
+- ✅ Instalar Vitest
+- ✅ Configurar Vitest
+- ✅ Configurar jsdom
+- ✅ Configurar setup.ts
+- ✅ Configurar coverage
+- ✅ Ejecutar primer test
 
-### 🔴 P0 - React Testing Library
+## 🔴 P0 - React Testing Library
 
-#### Instalación
+### Instalación
 
-- [x] Instalar React Testing Library
+- ✅ Instalar React Testing Library
 
-#### Infraestructura
+### Infraestructura
 
 - [ ] Configurar render personalizado
 - [ ] Configurar user-event
 
-### 🟡 P1 - Infraestructura
+## 🟡 P1 - Infraestructura compartida
 
-#### Base
-
-- [x] setup.ts
-- [x] vitest.config.ts
-- [x] coverage
-- [x] smoke test
-
-#### Compartida
-
+- ✅ setup.ts
+- ✅ vitest.config.ts
+- ✅ coverage
+- ✅ smoke test
 - [ ] render.tsx
 - [ ] fixtures
 - [ ] mocks
 
----
+## 🟡 P1 - MSW
 
-## 2. Unit Testing
-
-### 🔴 P0 - Auth
-
-#### tokenStorage
-
-- [ ] save()
-- [ ] get()
-- [ ] remove()
-- [ ] exists()
-
-#### useAuth
-
-- [ ] Usuario autenticado
-- [ ] Usuario no autenticado
-
-#### useLogout
-
-- [ ] Elimina el token
-
-#### useLogin
-
-- [ ] Login exitoso
-- [ ] Error de autenticación
-- [ ] Guarda el token
+- [ ] Configurar MSW
 
 ---
 
-### 🔴 P0 - Users
+# 2. Unit Testing
 
-#### useUsers
+## 🔴 P0 - Authentication
 
-- [ ] Obtiene listado
-- [ ] Error del servidor
+### tokenStorage
 
-#### useUser
+- ✅ AUTH-001 Guardar token
+- ✅ AUTH-002 Recuperar token
+- ✅ AUTH-003 Eliminar token
+- ✅ AUTH-004 Verificar existencia del token
+- ✅ AUTH-005 Verificar ausencia del token
 
-- [ ] Obtiene usuario
-- [ ] Usuario inexistente
+### useAuth
 
-#### useCreateUser
+- [ ] AUTH-010 Usuario autenticado
+- [ ] AUTH-011 Usuario no autenticado
 
-- [ ] Creación correcta
-- [ ] Error de validación
+### useLogout
 
-#### useUpdateUser
+- [ ] AUTH-020 Elimina el token
 
-- [ ] Actualización correcta
-- [ ] Error del servidor
+### useLogin
 
-#### usePatchUser
-
-- [ ] Actualización parcial
-- [ ] Payload vacío
-
-#### useDeleteUser
-
-- [ ] Eliminación lógica
-
-#### useUpdateUserStatus
-
-- [ ] Activación correcta
+- [ ] AUTH-030 Login exitoso
+- [ ] AUTH-031 Error de autenticación
+- [ ] AUTH-032 Guarda el token
 
 ---
 
-## 3. Component Testing
+## 🔴 P0 - Users
 
-### 🔴 P0 - Layout
+### useUsers
 
-#### Header
+- [ ] USER-001 Obtiene listado
+- [ ] USER-002 Error del servidor
+
+### useUser
+
+- [ ] USER-010 Obtiene usuario
+- [ ] USER-011 Usuario inexistente
+
+### useCreateUser
+
+- [ ] USER-020 Creación correcta
+- [ ] USER-021 Error de validación
+
+### useUpdateUser
+
+- [ ] USER-030 Actualización correcta
+- [ ] USER-031 Error del servidor
+
+### usePatchUser
+
+- [ ] USER-040 Actualización parcial
+- [ ] USER-041 Payload vacío
+
+### useDeleteUser
+
+- [ ] USER-050 Eliminación lógica
+
+### useUpdateUserStatus
+
+- [ ] USER-060 Activación correcta
+
+---
+
+# 3. Component Testing
+
+## 🔴 P0 - Layout
+
+### Header
 
 - [ ] Renderiza correctamente
 - [ ] Botón Logout
 - [ ] Ejecuta logout
 
-#### AppLayout
+### AppLayout
 
 - [ ] Renderiza Outlet
 
 ---
 
-### 🔴 P0 - LoginForm
+## 🔴 P0 - LoginForm
 
 - [ ] Render inicial
 - [ ] Email requerido
@@ -174,7 +204,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🔴 P0 - UserForm
+## 🔴 P0 - UserForm
 
 - [ ] Render inicial
 - [ ] Validaciones
@@ -182,7 +212,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🟡 P1 - EditUserForm
+## 🟡 P1 - EditUserForm
 
 - [ ] Precarga datos
 - [ ] Validaciones
@@ -190,7 +220,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🟡 P1 - PatchUserForm
+## 🟡 P1 - PatchUserForm
 
 - [ ] Precarga datos
 - [ ] Detecta cambios
@@ -199,9 +229,9 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 4. Integration Testing
+# 4. Integration Testing
 
-### 🔴 P0 - Navegación
+## 🔴 P0 - Navegación
 
 - [ ] Login → Dashboard
 - [ ] Dashboard → Users
@@ -211,7 +241,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🔴 P0 - CRUD
+## 🔴 P0 - CRUD
 
 - [ ] Crear usuario
 - [ ] Editar usuario
@@ -221,14 +251,14 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🟡 P1 - React Query
+## 🟡 P1 - React Query
 
 - [ ] Invalidación de caché
 - [ ] Refetch automático
 
 ---
 
-### 🟡 P1 - Manejo de errores
+## 🟡 P1 - Manejo de errores
 
 - [ ] Error 400
 - [ ] Error 401
@@ -238,18 +268,14 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 5. API Mocking (MSW)
+# 5. API Mocking
 
-### 🟡 P1
-
-- [ ] Configurar MSW
-
-#### Auth
+## 🟡 P1 - Auth
 
 - [ ] Login correcto
 - [ ] Login incorrecto
 
-#### Users
+## 🟡 P1 - Users
 
 - [ ] GET /users
 - [ ] GET /users/{id}
@@ -261,16 +287,16 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 6. End-to-End (Playwright)
+# 6. End-to-End (Playwright)
 
-### 🔴 P0 - Login
+## 🔴 P0 - Login
 
 - [ ] Login exitoso
 - [ ] Credenciales inválidas
 
 ---
 
-### 🔴 P0 - CRUD
+## 🔴 P0 - CRUD
 
 - [ ] Crear usuario
 - [ ] Ver detalle
@@ -281,7 +307,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🔴 P0 - Navegación
+## 🔴 P0 - Navegación
 
 - [ ] Protected Routes
 - [ ] Guest Routes
@@ -289,7 +315,7 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-### 🟡 P1 - Casos negativos
+## 🟡 P1 - Casos negativos
 
 - [ ] Error 404
 - [ ] Error 500
@@ -297,9 +323,9 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 7. End-to-End (Selenium)
+# 7. End-to-End (Selenium)
 
-### 🟢 P2 - Smoke Tests
+## 🟢 P2 - Smoke Tests
 
 - [ ] Login
 - [ ] Crear usuario
@@ -307,20 +333,20 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 8. Cobertura
+# 8. Cobertura objetivo
 
-### 🟡 P1
-
-- [ ] >90% Statements
-- [ ] >90% Branches
-- [ ] >90% Functions
-- [ ] >90% Lines
+| Métrica | Objetivo |
+|----------|----------|
+| Statements | ≥ 90% |
+| Branches | ≥ 90% |
+| Functions | ≥ 90% |
+| Lines | ≥ 90% |
 
 ---
 
-## 9. CI/CD
+# 9. CI/CD
 
-### 🟢 P2
+## 🟢 P2
 
 - [ ] Ejecutar Unit Tests
 - [ ] Ejecutar Component Tests
@@ -330,9 +356,9 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 10. Documentación
+# 10. Documentación
 
-### 🟢 P2
+## 🟢 P2
 
 - [ ] README de pruebas
 - [ ] Cómo ejecutar Unit Tests
@@ -344,16 +370,14 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
-## 11. Especificaciones BDD (Gherkin)
+# 11. Especificaciones BDD (Gherkin)
 
-### 🔴 P0
-
-#### Login
+## 🔴 P0 - Login
 
 - [ ] Login exitoso
 - [ ] Login inválido
 
-#### Users
+## 🔴 P0 - Users
 
 - [ ] Crear usuario
 - [ ] Editar usuario
@@ -361,7 +385,7 @@ La ejecución seguirá la pirámide de pruebas:
 - [ ] Eliminar usuario
 - [ ] Reactivar usuario
 
-#### Navegación
+## 🔴 P0 - Navegación
 
 - [ ] Protected Routes
 - [ ] Guest Routes
@@ -369,15 +393,26 @@ La ejecución seguirá la pirámide de pruebas:
 
 ---
 
+## Criterios de salida
+
+El proyecto se considerará completamente probado cuando:
+
+- Todas las pruebas P0 estén implementadas y aprobadas.
+- No existan pruebas automatizadas fallidas.
+- La cobertura mínima sea igual o superior al 90%.
+- Los flujos End-to-End principales se ejecuten correctamente.
+
+---
+
 ## Progreso
 
 | Área | Estado |
 |------|--------|
-| Configuración | ✅ |
+| Infraestructura | ✅ |
 | Unit Testing | ⬜ |
 | Component Testing | ⬜ |
 | Integration Testing | ⬜ |
-| MSW | ⬜ |
+| API Mocking | ⬜ |
 | Playwright | ⬜ |
 | Selenium | ⬜ |
 | Coverage | ⬜ |
