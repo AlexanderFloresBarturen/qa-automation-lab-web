@@ -8,11 +8,12 @@ import {
   Dashboard,
   Users,
   CreateUser,
+  UserDetail,
+  EditUser,
+  PatchUser,
 } from '@/features'
 import { AuthLayout, MainLayout } from '../layouts'
 import { ProtectedRoute, GuestRoute } from '@/features/auth'
-import { UserDetail } from '@/features/users/pages/UserDetail'
-import { EditUser } from '@/features/users/pages/EditUser'
 
 export function AppRouter() {
   return (
@@ -38,6 +39,7 @@ export function AppRouter() {
             <Route path={PATHS.CREATE_USER} element={<CreateUser />} />
             <Route path={PATHS.USER_DETAIL} element={<UserDetail />} />
             <Route path={PATHS.USER_EDIT} element={<EditUser />} />
+            <Route path={PATHS.USER_PATCH} element={<PatchUser />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to={PATHS.LOGIN} replace />} />

@@ -77,6 +77,9 @@ export function UserDetails({ user }: UserDetailsProps) {
             <Button onClick={() => navigate(PATHS.userEdit(user.id))}>
               Editar
             </Button>
+            <Button onClick={() => navigate(PATHS.userPatch(user.id))}>
+              Editar campos
+            </Button>
             <Button onClick={handleDelete} disabled={deleteUser.isPending}>
               {deleteUser.isPending ? 'Eliminando...' : 'Eliminar'}
             </Button>

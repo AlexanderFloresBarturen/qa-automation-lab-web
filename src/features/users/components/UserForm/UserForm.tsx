@@ -15,7 +15,7 @@ interface UserFormProps {
 
 export function UserForm({
   initialValues,
-  submitLabel = 'Crear Usuario',
+  submitLabel = 'Crear usuario',
   onSubmitSuccess,
 }: UserFormProps) {
   const {

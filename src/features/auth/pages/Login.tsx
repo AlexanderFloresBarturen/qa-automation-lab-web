@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { PATHS } from '@/app/router'
 import { Button, Card } from '@/shared/components'
@@ -20,10 +20,11 @@ export function Login() {
   } = useLoginForm()
 
   const { login } = useLogin()
+  const navigate = useNavigate()
 
   async function onSubmit(data: LoginFormData) {
-    const response = await login(data)
-    console.log(response)
+    await login(data)
+    navigate(PATHS.USERS)
   }
 
   const { logout } = useLogout()

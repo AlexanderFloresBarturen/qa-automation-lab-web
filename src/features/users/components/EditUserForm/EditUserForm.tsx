@@ -7,7 +7,7 @@ import type { UserDetailResponse } from '@/features/users'
 import { getApiErrorMessage } from '@/shared/utils'
 import { useUpdateUser } from '@/features/users'
 
-interface UserFormProps {
+interface EditUserFormProps {
   userId: number
   initialValues?: Partial<UpdateUserFormData>
   submitLabel?: string
@@ -17,9 +17,9 @@ interface UserFormProps {
 export function EditUserForm({
   userId,
   initialValues,
-  submitLabel = 'Crear Usuario',
+  submitLabel = 'Guardar cambios',
   onSubmitSuccess,
-}: UserFormProps) {
+}: EditUserFormProps) {
   const {
     register,
     handleSubmit,
