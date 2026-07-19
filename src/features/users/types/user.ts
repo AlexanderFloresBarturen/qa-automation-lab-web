@@ -24,3 +24,7 @@ export interface PatchUserRequest {
   email?: string
   age?: number
 }
+
+export interface UserStatusRequest {
+  is_active: boolean
+}

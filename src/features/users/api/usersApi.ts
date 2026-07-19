@@ -4,6 +4,7 @@ import type {
   PatchUserRequest,
   UpdateUserRequest,
   UserDetailResponse,
+  UserStatusRequest,
 } from '../types'
 
 export const usersApi = {
@@ -48,5 +49,17 @@ export const usersApi = {
 
   async delete(id: number): Promise<void> {
     await httpClient.delete(`users/${id}`)
+  },
+
+  async updateStatus(
+    id: number,
+    data: UserStatusRequest,
+  ): Promise<UserDetailResponse> {
+    const response = await httpClient.patch<UserDetailResponse>(
+      `users/${id}/status`,
+      data,
+    )
+
+    return response.data
   },
 }

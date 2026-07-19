@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { useUser } from '../hooks'
-import { Loading, ErrorMessage } from '@/shared/components'
+import { Loading, ErrorMessage, Button } from '@/shared/components'
 import { getApiErrorMessage } from '@/shared/utils'
 import { PATHS } from '@/app/router'
 import { EditUserForm } from '../components'
@@ -14,7 +14,7 @@ export function EditUser() {
   const navigate = useNavigate()
 
   if (!isValidUserId) {
-    return <ErrorMessage message="User ID inválido" />
+    return <ErrorMessage message="User ID inválido." />
   }
 
   if (isLoading) {
@@ -26,7 +26,17 @@ export function EditUser() {
   }
 
   if (!user) {
-    return <ErrorMessage message="Usuario no encontrado" />
+    return <ErrorMessage message="Usuario no encontrado." />
+  }
+
+  if (!user.is_active) {
+    return (
+      <>
+        <ErrorMessage message="No es posible editar un usuario inactivo. Activalo primero desde la vista de detalle" />
+        <br></br>
+        <Button onClick={() => navigate(PATHS.userDetail(user.id))}>Volver al detalle</Button>
+      </>
+    )
   }
 
   return (

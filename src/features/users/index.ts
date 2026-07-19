@@ -4,6 +4,7 @@ export type {
   CreateUserRequest,
   UpdateUserRequest,
   PatchUserRequest,
+  UserStatusRequest,
 } from './types'
 export { usersApi } from './api'
 export { useUsers } from './hooks'

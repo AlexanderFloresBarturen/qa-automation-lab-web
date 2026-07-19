@@ -3,4 +3,5 @@ export type {
   CreateUserRequest,
   UpdateUserRequest,
   PatchUserRequest,
+  UserStatusRequest,
 } from './user'
