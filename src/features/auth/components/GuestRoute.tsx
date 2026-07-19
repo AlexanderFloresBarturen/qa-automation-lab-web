@@ -8,7 +8,7 @@ export function GuestRoute() {
   const { isAuthenticated } = useAuth()
 
   if (isAuthenticated) {
-    return <Navigate replace to={PATHS.DASHBOARD} />
+    return <Navigate replace to={PATHS.USERS} />
   }
 
   return <Outlet />

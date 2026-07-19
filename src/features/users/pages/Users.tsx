@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useUsers, UsersTable } from '@/features/users'
 import { PATHS } from '@/app/router'
 import { getApiErrorMessage } from '@/shared/utils'
-import { ErrorMessage, Loading } from '@/shared/components'
+import { Button, ErrorMessage, Loading } from '@/shared/components'
 
 export function Users() {
   const { data: users = [], isLoading, error } = useUsers()
@@ -19,13 +19,13 @@ export function Users() {
   return (
     <section>
       <header>
-        <h1>Users</h1>
+        <h1>Usuarios</h1>
 
-        <button type="button" onClick={() => navigate(PATHS.CREATE_USER)}>
-          New User
-        </button>
+        <Button type="button" onClick={() => navigate(PATHS.CREATE_USER)}>
+          Nuevo usuario
+        </Button>
       </header>
-
+      <br></br>
       <UsersTable users={users} />
     </section>
   )

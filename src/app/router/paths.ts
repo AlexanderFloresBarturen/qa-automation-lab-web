@@ -11,5 +11,5 @@ export const PATHS = {
 
   userDetail: (id: number) => `/users/${id}`,
   userEdit: (id: number) => `/users/${id}/edit`,
-  userPatch: (id: number) => `/users/${id}/patch`
+  userPatch: (id: number) => `/users/${id}/patch`,
 } as const

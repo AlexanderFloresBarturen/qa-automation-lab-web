@@ -2,12 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { PATHS } from '@/app/router'
 import { Button, Card } from '@/shared/components'
-import {
-  useLoginForm,
-  type LoginFormData,
-  useLogin,
-  useLogout,
-} from '@/features/auth'
+import { useLoginForm, type LoginFormData, useLogin } from '@/features/auth'
 
 import styles from './Login.module.css'
 import { FormField } from '@/shared/components'
@@ -26,8 +21,6 @@ export function Login() {
     await login(data)
     navigate(PATHS.USERS)
   }
-
-  const { logout } = useLogout()
 
   return (
     <section className={styles.login}>
@@ -52,10 +45,6 @@ export function Login() {
           />
 
           <Button type="submit">Iniciar sesión</Button>
-          <Button type="button" onClick={logout}>
-            {' '}
-            Cerrar sesión (prueba)
-          </Button>
         </form>
 
         <Link className={styles.forgotPassword} to={PATHS.FORGOT_PASSWORD}>

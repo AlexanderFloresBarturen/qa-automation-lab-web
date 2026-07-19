@@ -34,7 +34,9 @@ export function EditUser() {
       <>
         <ErrorMessage message="No es posible editar un usuario inactivo. Activalo primero desde la vista de detalle" />
         <br></br>
-        <Button onClick={() => navigate(PATHS.userDetail(user.id))}>Volver al detalle</Button>
+        <Button onClick={() => navigate(PATHS.userDetail(user.id))}>
+          Volver al detalle
+        </Button>
       </>
     )
   }
