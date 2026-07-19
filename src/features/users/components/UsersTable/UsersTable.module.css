@@ -1,0 +1,46 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.table thead {
+  border-bottom: 2px solid #d1d5db;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.clickableRow {
+  cursor: pointer;
+}
+
+.clickableRow:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.active {
+  color: #166534;
+}
+
+.inactive {
+  color: #991b1b;
+}
