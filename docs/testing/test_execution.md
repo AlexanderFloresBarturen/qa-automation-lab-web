@@ -36,13 +36,22 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 
 ### Resultados de ejecución
 
-| Test ID | Caso de prueba | Resultado esperado | Resultado obtenido | Estado | Observaciones |
-|---------|----------------|--------------------|--------------------|--------|---------------|
-| AUTH-001 | Debe almacenar el token de acceso | El token se almacena en localStorage con la clave `access_token`. | El token fue almacenado correctamente. | 🟢 PASS | Sin incidencias. |
-| AUTH-002 | Debe recuperar el token almacenado | Se devuelve el token previamente almacenado. | Se obtuvo el valor esperado (`abc123`). | 🟢 PASS | Sin incidencias. |
-| AUTH-003 | Debe eliminar el token almacenado | La clave `access_token` deja de existir en `localStorage` | El token fue eliminado correctamente. | 🟢 PASS | Sin incidencias. |
-| AUTH-004 | Debe verificar la existencia del token almacenado | Verificar que el método `exists()` indica correctamente cuando existe un token almacenado. | Se obtuvo el valor esperado (`true`). | 🟢 PASS | Sin incidencias. |
-| AUTH-005 | Debe recuperar la inexistencia del token almacenado | Verificar que el método `exists()` indica correctamente cuando no existe un token almacenado. | Se obtuvo el valor esperado (`false`). | 🟢 PASS | Sin incidencias. |
+| Test ID | Estado | Observaciones |
+|---------|--------|---------------|
+| AUTH-001 | 🟢 PASS | Sin incidencias. |
+| AUTH-002 | 🟢 PASS | Sin incidencias. |
+| AUTH-003 | 🟢 PASS | Sin incidencias. |
+| AUTH-004 | 🟢 PASS | Sin incidencias. |
+| AUTH-005 | 🟢 PASS | Sin incidencias. |
+| AUTH-010 | 🟢 PASS | Sin incidencias. |
+| AUTH-011 | 🟢 PASS | Sin incidencias. |
+| AUTH-020 | 🟢 PASS | Sin incidencias. |
+| AUTH-030 | 🟢 PASS | Sin incidencias. |
+| AUTH-031 | 🟢 PASS | Sin incidencias. |
+| AUTH-032 | 🟢 PASS | Sin incidencias. |
+| AUTH-040 | 🟢 PASS | Sin incidencias. |
+| AUTH-041 | 🟢 PASS | Sin incidencias. |
+| AUTH-042 | 🟢 PASS | Sin incidencias. |
 
 ---
 
@@ -50,7 +59,7 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 
 | Total | PASS | FAIL | Bloqueados |
 |------:|-----:|-----:|-----------:|
-| 5 | 5 | 0 | 0 |
+| 14 | 14 | 0 | 0 |
 
 ---
 

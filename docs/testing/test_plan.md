@@ -126,18 +126,24 @@ Este plan cubre las pruebas del frontend del proyecto QA Automation Lab.
 
 ### useAuth
 
-- [ ] AUTH-010 Usuario autenticado
-- [ ] AUTH-011 Usuario no autenticado
+- ✅ AUTH-010 Usuario autenticado
+- ✅ AUTH-011 Usuario no autenticado
 
 ### useLogout
 
-- [ ] AUTH-020 Elimina el token
+- ✅ AUTH-020 Elimina el token
 
 ### useLogin
 
-- [ ] AUTH-030 Login exitoso
-- [ ] AUTH-031 Error de autenticación
-- [ ] AUTH-032 Guarda el token
+- ✅ AUTH-030 Login exitoso
+- ✅ AUTH-031 Error de autenticación
+- ✅ AUTH-032 Guarda el token
+
+### loginSchema
+
+- ✅ AUTH-040 Credenciales válidas
+- ✅ AUTH-041 Correo electrónico inválido
+- ✅ AUTH-042 Constraseña obligatoria
 
 ---
 

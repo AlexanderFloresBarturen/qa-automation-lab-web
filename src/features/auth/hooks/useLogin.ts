@@ -1,5 +1,5 @@
-import { authApi } from '@/features/auth/api'
-import { tokenStorage } from '@/features/auth'
+import { authApi } from '../api'
+import { tokenStorage } from '../storage'
 
 import type { LoginFormData, LoginResponse } from '@/features/auth'
 

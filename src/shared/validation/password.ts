@@ -2,11 +2,11 @@ import { z } from 'zod'
 
 export const passwordSchema = z
   .string()
-  .min(8, 'Password must contain at least 8 characters')
-  .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-  .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
-  .regex(/[0-9]/, 'Password must contain at least one number')
+  .min(8, 'La contraseña debe tener la menos 8 caracteres')
+  .regex(/[A-Z]/, 'La contraseña debe contener al menos una letra mayúscula')
+  .regex(/[a-z]/, 'La contraseña debe contener al menos una letra minúsucla')
+  .regex(/[0-9]/, 'La contraseña debe contener al menos un número')
   .regex(
-    /[!@$_]/,
-    'Password must contain at least one special character (! @ $ _)',
+    /[!@#$_]/,
+    'La contraseña debe contener al menos un caracter especial (! @ # $ _)',
   )

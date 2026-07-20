@@ -1,6 +1,6 @@
 import { httpClient } from '@/shared/api'
 
-import type { LoginResponse, LoginRequest } from '@/features/auth'
+import type { LoginResponse, LoginRequest } from '../types'
 
 export const authApi = {
   async login(request: LoginRequest): Promise<LoginResponse> {

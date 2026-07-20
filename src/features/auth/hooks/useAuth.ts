@@ -1,4 +1,4 @@
-import { tokenStorage } from '@/features/auth'
+import { tokenStorage } from '../storage'
 
 export function useAuth() {
   const access_token = tokenStorage.get()
