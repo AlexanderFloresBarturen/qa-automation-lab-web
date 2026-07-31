@@ -151,18 +151,20 @@ Este plan cubre las pruebas del frontend del proyecto QA Automation Lab.
 
 ### useUsers
 
-- [ ] USER-001 Obtiene listado
-- [ ] USER-002 Error del servidor
+- ✅ USER-001 Obtiene listado
+- ✅ USER-002 Error del servidor
 
 ### useUser
 
-- [ ] USER-010 Obtiene usuario
-- [ ] USER-011 Usuario inexistente
+- ✅ USER-010 Obtiene usuario
+- ✅ USER-011 Usuario inexistente
+- ✅ USER-012 Consulta deshabilitada
 
 ### useCreateUser
 
 - [ ] USER-020 Creación correcta
 - [ ] USER-021 Error de validación
+- [ ] USER-022 Invalidar la consulta `['users']` después de una creación exitosa
 
 ### useUpdateUser
 

@@ -448,3 +448,247 @@ Verificar que el esquema requiere una contraseña para validar las credenciales.
 - Se informa el mensaje **"La contraseña es obligatoria"**.
 
 ---
+
+## Users
+
+### USER-001 - Listado de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-001 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUsers |
+| **Método** | useUsers() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que se obtiene una lista con los usuarios registrados.
+
+**Precondiciones**
+
+- El servicio de listado de usuarios responde correctamente con una lista de usuarios.
+
+**Pasos**
+
+1. Ejecutar `useUsers()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método retorna la lista de usuarios obtenida del servicio.
+
+---
+
+### USER-002 - Error en listado de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-002 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUsers |
+| **Método** | useUsers() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUsers()` expone el error cuando el servicio de listado de usuarios responde con un fallo.
+
+**Precondiciones**
+
+- El servicio de listado de usuarios responde con un error.
+
+**Pasos**
+
+1. Ejecutar `useUsers()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-010 - Obtiene usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-010 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` obtiene el usuario asociado al identificador especificado.
+
+**Precondiciones**
+
+- El servicio de usuarios responde correctamente con la información del usuario solicitado.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método retorna la información del usuario obtenida del servicio.
+
+---
+
+### USER-011 - Error en obtener usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-011 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` expone el error cuando el servicio de usuarios responde con un fallo.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-012 - Consulta deshabilitada
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-012 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` no ejecuta la consulta al servicio de usuarios cuando `enabled` es `false`.
+
+**Precondiciones**
+
+- La consulta se ejecuta con el parámetro `enabled` establecido en `false`.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+
+**Resultado esperado**
+
+- El método no ejecuta la consulta al servicio de usuarios.
+
+---
+
+### USER-020 - Crear usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-020 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟡 Diseñado |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` crea un usuario correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios responde correctamente con la información del usuario creado.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna la información del usuario creada por el servicio.
+
+---
+
+### USER-021 - Error al crear usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-021 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟡 Diseñado |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` expone el error cuando el servicio de usuarios responde con un fallo durante la creación.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al crear el usuario.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-022 - Crear usuario invalidar la consulta `['users']`
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-022 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟡 Diseñado |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` invalida la consulta de usuarios cuando la creación del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios crea correctamente el usuario.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar ka nutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---

@@ -26,7 +26,6 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 | Campo | Valor |
 |-------|-------|
 | Proyecto | React Authentication |
-| Módulo | tokenStorage |
 | Entorno | Vitest + jsdom |
 | Fecha | 19-07-2026 |
 | Ejecutado por | Alex |
@@ -63,3 +62,36 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 
 ---
 
+## Users
+
+### Información de la ejecución
+
+| Campo | Valor |
+|-------|-------|
+| Proyecto | React Authentication |
+| Entorno | Vitest + jsdom |
+| Fecha | 30-07-2026 |
+| Ejecutado por | Alex |
+| Resultado general | 🟡 Pendiente |
+
+---
+
+### Resultados de ejecución
+
+| Test ID | Estado | Observaciones |
+|---------|--------|---------------|
+| USER-001 | 🟢 PASS | Sin incidencias. |
+| USER-002 | 🟢 PASS | Sin incidencias. |
+| USER-010 | 🟢 PASS | Sin incidencias. |
+| USER-011 | 🟢 PASS | Sin incidencias. |
+| USER-012 | 🟢 PASS | Sin incidencias. |
+
+---
+
+### Resumen
+
+| Total | PASS | FAIL | Bloqueados |
+|------:|-----:|-----:|-----------:|
+| 5 | 5 | 0 | 0 |
+
+---
