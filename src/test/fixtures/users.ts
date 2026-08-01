@@ -1,4 +1,4 @@
-import type { CreateUserRequest, UpdateUserRequest, UserDetailResponse } from "@/features";
+import type { CreateUserRequest, PatchUserRequest, UpdateUserRequest, UserDetailResponse } from "@/features";
 
 export function createUserRequest(
     overrides: Partial<CreateUserRequest> = {},
@@ -19,6 +19,14 @@ export function updateUserRequest(
         name: 'Bob',
         email: 'bob@test.com',
         age: 20,
+        ...overrides
+    }
+}
+
+export function patchUserRequest(
+    overrides: Partial<PatchUserRequest> = {},
+): PatchUserRequest {
+    return {
         ...overrides
     }
 }
