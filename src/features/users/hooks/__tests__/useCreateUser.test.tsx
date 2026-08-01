@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { usersApi } from "../../api";
-import { createQueryWrapper } from "@/test";
+import { createQueryWrapper, createUserRequest, userDetailResponse } from "@/test";
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { useCreateUser } from "../useCreateUser";
 
@@ -17,20 +17,9 @@ beforeEach(() => {
 describe('useCreateUser', () => {
     it('USER-020 - Debe crear un usuario correctamente', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30,
-            password: 'Password123!'
-        }
+        const userRequest = createUserRequest()
 
-        const userResponse = {
-            id: 1,
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30,
-            is_active: true,
-        }
+        const userResponse = userDetailResponse()
 
         vi.mocked(usersApi.create).mockResolvedValue(userResponse)
         const {wrapper} = createQueryWrapper()
@@ -53,12 +42,7 @@ describe('useCreateUser', () => {
 
     it('USER-021 - Debe exponer el error cuando el servicio de usuarios falla', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex_test.com',
-              age: 30,
-            password: 'Password123!'
-        }
+        const userRequest = createUserRequest()
 
         const error = new Error('Invalid email format')
         vi.mocked(usersApi.create).mockRejectedValue(error)
@@ -86,20 +70,9 @@ describe('useCreateUser', () => {
 
     it('USER-022 - Debe invalidar ["users"] luego de crear un usuario', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30,
-            password: 'Password123!'
-        }
+        const userRequest = createUserRequest()
 
-        const userResponse = {
-            id: 1,
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30,
-            is_active: true,
-        }
+        const userResponse = userDetailResponse()
 
         vi.mocked(usersApi.create).mockResolvedValue(userResponse)
         const {wrapper, queryClient} = createQueryWrapper()

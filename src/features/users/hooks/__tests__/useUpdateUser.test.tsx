@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { usersApi } from "../../api";
-import { createQueryWrapper } from "@/test";
+import { createQueryWrapper, updateUserRequest, userDetailResponse } from "@/test";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useUpdateUser } from "../useUpdateUser";
 import { act } from "react";
@@ -18,17 +18,13 @@ beforeEach(() => {
 describe('useUpdateUser', () => {
     it('USER-030 - Debe actualizar un usuario correctamente', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30
-        }
+        const userRequest = updateUserRequest()
 
-        const userResponse = {
-            id: 1,
-            ...userRequest,
-            is_active: true
-        }
+        const userResponse = userDetailResponse({
+            name: 'Bob',
+            email: 'bob@test.com',
+            age: 20
+        })
 
         vi.mocked(usersApi.update).mockResolvedValue(userResponse)
         const { wrapper } = createQueryWrapper()
@@ -55,11 +51,7 @@ describe('useUpdateUser', () => {
 
     it('USER-031 - Debe exponer el error cuando el servicio de usuarios falla', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30
-        }
+        const userRequest = updateUserRequest()
 
         const error = new Error('Internal Server Error')
         vi.mocked(usersApi.update).mockRejectedValue(error)
@@ -88,17 +80,13 @@ describe('useUpdateUser', () => {
 
     it('USER-032 - Debe invalidar ["users"] luego de actualizar un usuario', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30
-        }
+        const userRequest = updateUserRequest()
 
-        const userResponse = {
-            id: 1,
-            ...userRequest,
-            is_active: true
-        }
+        const userResponse = userDetailResponse({
+            name: 'Bob',
+            email: 'bob@test.com',
+            age: 20
+        })
 
         vi.mocked(usersApi.update).mockResolvedValue(userResponse)
         const { wrapper, queryClient } = createQueryWrapper()
@@ -124,17 +112,13 @@ describe('useUpdateUser', () => {
 
     it('USER-033 - Debe actualizar la caché del usuario actualizado', async () => {
         // Arrange
-        const userRequest = {
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30
-        }
+        const userRequest = updateUserRequest()
 
-        const userResponse = {
-            id: 1,
-            ...userRequest,
-            is_active: true
-        }
+        const userResponse = userDetailResponse({
+            name: 'Bob',
+            email: 'bob@test.com',
+            age: 20
+        })
 
         vi.mocked(usersApi.update).mockResolvedValue(userResponse)
         const { wrapper, queryClient } = createQueryWrapper()

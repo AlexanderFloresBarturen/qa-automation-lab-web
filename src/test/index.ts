@@ -1,1 +1,4 @@
 export { createQueryWrapper } from './utils'
+export { createUserRequest } from './fixtures/users'
+export { updateUserRequest } from './fixtures/users'
+export { userDetailResponse } from './fixtures/users'

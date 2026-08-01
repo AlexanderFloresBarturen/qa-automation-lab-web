@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { usersApi } from "../../api";
-import { createQueryWrapper } from "@/test";
+import { createQueryWrapper, userDetailResponse } from "@/test";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useUser } from "../useUser";
 
@@ -17,13 +17,7 @@ beforeEach(() => {
 describe('useUser', () => {
     it('USER-010 - Debe obtener el usuario asociado al identificador', async () => {
         // Arrange
-        const user = {
-            id: 1,
-            name: 'Alex',
-            email: 'alex@test.com',
-            age: 30,
-            is_active: true
-        }
+        const user = userDetailResponse()
 
         vi.mocked(usersApi.getById).mockResolvedValue(user)
         const {wrapper} = createQueryWrapper()

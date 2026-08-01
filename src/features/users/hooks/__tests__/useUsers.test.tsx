@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { usersApi } from "../../api";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useUsers } from "../useUsers";
-import { createQueryWrapper } from "@/test";
+import { createQueryWrapper, userDetailResponse } from "@/test";
 
 vi.mock('../../api', () => ({
     usersApi: {
@@ -18,20 +18,14 @@ describe('useUsers', () => {
     it('USER-001 - Debe obtener el listado de usuarios', async () => {
         // Arrange
         const users = [
-            {
-                id: 1,
-                name: 'Alex',
-                email: 'alex@test.com',
-                age: 30,
-                is_active: true
-            },
-            {
+            userDetailResponse(),
+            userDetailResponse({
                 id: 2,
-                name: 'John',
-                email: 'john@test.com',
+                name: 'Bob',
+                email: 'bob@test.com',
                 age: 20,
                 is_active: false
-            }
+            })
         ]
 
         vi.mocked(usersApi.getAll).mockResolvedValue(users)
