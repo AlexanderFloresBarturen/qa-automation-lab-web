@@ -11,7 +11,7 @@ vi.mock('../../api', () => ({
 }))
 
 beforeEach(() => {
-  vi.clearAllMocks()
+  vi.resetAllMocks()
 })
 
 describe('useUser', () => {
