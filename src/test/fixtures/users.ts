@@ -1,4 +1,4 @@
-import type { CreateUserRequest, PatchUserRequest, UpdateUserRequest, UserDetailResponse } from "@/features";
+import type { CreateUserRequest, PatchUserRequest, UpdateUserRequest, UserDetailResponse, UserStatusRequest } from "@/features";
 
 export function createUserRequest(
     overrides: Partial<CreateUserRequest> = {},
@@ -27,6 +27,15 @@ export function patchUserRequest(
     overrides: Partial<PatchUserRequest> = {},
 ): PatchUserRequest {
     return {
+        ...overrides
+    }
+}
+
+export function userStatusRequest(
+    overrides: Partial<UserStatusRequest> = {},
+): UserStatusRequest {
+    return {
+        is_active: true,
         ...overrides
     }
 }
