@@ -11,6 +11,7 @@ El proyecto tiene como objetivo servir como entorno de aprendizaje para automati
 - Aprender React y TypeScript.
 - Consumir APIs REST desarrolladas en el laboratorio Backend.
 - Implementar autenticación basada en JWT.
+- Automatizar pruebas unitarias.
 - Automatizar pruebas End-to-End.
 - Aplicar buenas prácticas de arquitectura Frontend.
 - Construir un portafolio orientado a QA Automation.
@@ -34,13 +35,13 @@ El proyecto tiene como objetivo servir como entorno de aprendizaje para automati
 
 - GitHub Actions
 
-### Testing (Próximamente)
+### Testing
 
-- Vitest
-- React Testing Library
-- Playwright
-- Selenium
-- Allure Reports
+- Vitest ✅
+- React Testing Library ✅
+- Playwright (Próximamente)
+- Selenium (Próximamente)
+- Allure Reports (Próximamente)
 
 ---
 
@@ -48,16 +49,7 @@ El proyecto tiene como objetivo servir como entorno de aprendizaje para automati
 
 Sprint actual:
 
-**Sprint 1**
-
-Infraestructura completada:
-
-- React + TypeScript
-- ESLint
-- Prettier
-- GitHub Actions
-- Arquitectura Feature-first
-- Documentación inicial
+**Sprint 4 - Recuperación de contraseña**
 
 ---
 
@@ -81,7 +73,7 @@ Infraestructura completada:
 - Autenticación
 - JWT
 
-🚧 En progreso
+✅ Completado
 
 ---
 
@@ -91,18 +83,24 @@ Infraestructura completada:
 - CRUD
 - Integración con Backend
 
+✅ Completado
+
 ---
 
 ### Sprint 3
 
-- Recuperación de contraseña
+- Vitest
+- React Testing Library
+
+✅ Completado
 
 ---
 
 ### Sprint 4
 
-- Vitest
-- React Testing Library
+- Recuperación de contraseña
+
+🚧 En progreso
 
 ---
 
@@ -158,6 +156,12 @@ npm run format:check
 npm run format
 ```
 
+### Ejecutar pruebas unitarias
+
+```bash
+npm run test:run
+```
+
 ### Generar Build
 
 ```bash
@@ -172,6 +176,13 @@ La documentación técnica del proyecto se encuentra en el directorio `docs/`.
 
 - [architecture.md](/docs/architecture.md) — Arquitectura del proyecto.
 - [development.md](/docs/development.md) — Decisiones técnicas y evolución del desarrollo.
+
+La documentación de pruebas del proyecto se encuentra en el directorio `docs/testing`.
+
+- [requirements.md](/docs/testing/requirements.md)
+- [test_plan.md](/docs/testing/test_plan.md)
+- [test_cases.md](/docs/testing/test_cases.md)
+- [test_execution](/docs/testing/test_execution.md)
 
 ---
 
@@ -197,6 +208,8 @@ Este proyecto no pretende construir la aplicación visualmente más compleja.
 El objetivo es desarrollar una aplicación suficientemente realista para practicar desarrollo Frontend y automatización de pruebas utilizando herramientas empleadas en entornos profesionales.
 
 Cada Sprint incorporará nuevas funcionalidades junto con su correspondiente estrategia de pruebas automatizadas.
+
+Cada funcionalidad desarrollada incorpora su documentación técnica, requisitos funcionales, casos de prueba y pruebas automatizadas desde las primeras etapas del desarrollo.
 
 ---
 

@@ -84,6 +84,18 @@ La estructura del proyecto deberá favorecer la creación de pruebas mantenibles
 
 ---
 
+### Calidad verificable
+
+Toda funcionalidad incorporada al proyecto deberá incluir, cuando corresponda:
+
+- requisitos funcionales
+- casos de prueba
+- pruebas automatizadas
+
+El desarrollo de nuevas funcionalidades deberá priorizar la verificabilidad y la mantenibilidad antes que la incorporación de nuevas características.
+
+---
+
 ## Herramientas del Proyecto
 
 Actualmente el proyecto utiliza las siguientes herramientas.
@@ -100,10 +112,10 @@ Actualmente el proyecto utiliza las siguientes herramientas.
 
 ---
 
-### Calidad del Código
+### Testing
 
-- ESLint
-- Prettier
+- Vitest
+- React Testing Library
 
 ---
 
@@ -117,8 +129,6 @@ Actualmente el proyecto utiliza las siguientes herramientas.
 
 Durante los siguientes sprints se incorporarán:
 
-- Vitest
-- React Testing Library
 - Playwright
 - Selenium
 - Allure Reports
@@ -335,6 +345,42 @@ La autenticación queda desacoplada de React Router, Axios y Local Storage, faci
 
 ---
 
+### ADR-006
+
+#### Título
+
+Diseñar la lógica de negocio para facilitar las pruebas unitarias.
+
+#### Estado
+
+Aceptada.
+
+#### Contexto
+
+El proyecto tiene como uno de sus objetivos principales el aprendizaje de QA Automation.
+
+Para facilitar las pruebas unitarias, la lógica de negocio debe permanecer desacoplada de la interfaz de usuario y la infraestructura.
+
+#### Decisión
+
+La lógica de negocio se implementará mediante hooks especializados.
+
+Cada hook tendrá una única responsabilidad y dependerá exclusivamente de servicios de infraestructura abstraídos.
+
+Las páginas y componentes serán responsables únicamente de la presentación.
+
+#### Consecuencias
+
+Ventajas:
+
+- Mayor facilidad para pruebas unitarias.
+- Bajo acoplamiento.
+- Hooks reutilizables.
+- Mejor mantenibilidad.
+- Mayor cobertura mediante Vitest y React Testing Library.
+
+---
+
 ## Sprint 0
 
 ### Objetivo
@@ -468,11 +514,99 @@ Implementar la infraestructura de autenticación de la aplicación.
 
 ---
 
+## Sprint 2
+
+### Objetivo
+
+Implementar el módulo de Gestión de Usuarios.
+
+---
+
+### Trabajo realizado
+
+#### Gestión de usuarios
+
+- Listado de usuarios.
+- Consulta de usuario.
+- Creación.
+- Actualización.
+- Actualización parcial.
+- Eliminación lógica.
+- Cambio de estado.
+
+---
+
+#### Arquitectura
+
+- Casos de uso mediante hooks.
+- Separación API/Hooks.
+- Fixtures reutilizables para pruebas.
+
+---
+
+#### Backend
+
+- Integración completa con la API REST.
+
+---
+
+### Lecciones aprendidas
+
+- React Query simplifica la gestión del estado remoto.
+- La separación entre hooks y API facilita el testing.
+- Las mutaciones requieren estrategias distintas para la gestión de caché.
+
+---
+
+## Sprint 3
+
+### Objetivo
+
+Incorporar pruebas unitarias desde las primeras etapas de desarrollo.
+
+### Trabajo realizado
+
+#### Testing
+
+- Vitest.
+- React Testing Library.
+- Mocking.
+- Spy.
+- Fixtures reutilizables.
+- Query Wrapper.
+- Cobertura de hooks de Auth.
+- Cobertura de hooks de Users.
+
+---
+
+#### Documentación QA
+
+- Requirements.
+- Test plan.
+- Test cases.
+- Test execution.
+
+---
+
+#### Integración continua
+
+- Ejecución automática de pruebas unitarias.
+
+---
+
+### Lecciona aprendidas
+
+- Diseñar para ser probado produce una arquitectura más desacoplada.
+- React Query requiere estrategias específicas para probar mutaciones y caché.
+- Los fixtures reducen considerablemente la duplicación de código.
+
+---
+
 ## Estado Actual
 
 Sprint actual:
 
-**Sprint 2**
+**Sprint 4**
 
 Infraestructura completada:
 
@@ -487,21 +621,26 @@ Infraestructura completada:
 - ✅ Arquitectura Feature-first
 - ✅ Sistema de autenticación
 - ✅ Protección de rutas
+- ✅ Vitest
+- ✅ React Testing Library
+- ✅ Pruebas unitarias
 
 Próximo objetivo:
 
-Implementar el módulo de Gestión de Usuarios (Users), que servirá como base para las pruebas automatizadas y la evolución funcional de la aplicación.
+Implementar el módulo de Recuperación de Contraseña y comenzar la automatización End-to-End.
 
 ---
 
 ## Convenciones de Desarrollo
 
-* Las páginas no deberán acceder directamente a la infraestructura.
-* Los hooks representan casos de uso.
-* La comunicación HTTP se realizará exclusivamente mediante shared/api.
-* La gestión del JWT permanecerá encapsulada en features/auth/storage.
-* Se evitará la creación prematura de componentes reutilizables.
-* Toda nueva funcionalidad deberá mantener el principio de responsabilidad única.
+- Las páginas no deberán acceder directamente a la infraestructura.
+- Los hooks representan casos de uso.
+- La comunicación HTTP se realizará exclusivamente mediante shared/api.
+- La gestión del JWT permanecerá encapsulada en features/auth/storage.
+- Se evitará la creación prematura de componentes reutilizables.
+- Toda nueva funcionalidad deberá mantener el principio de responsabilidad única.
+- Cada caso de uso deberá contar con pruebas unitarias.
+- Los datos de prueba reutilizables deberán centralizarse mediante fixtures.
 
 ---
 
