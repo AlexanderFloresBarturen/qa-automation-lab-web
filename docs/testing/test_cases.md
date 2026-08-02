@@ -448,3 +448,712 @@ Verificar que el esquema requiere una contraseña para validar las credenciales.
 - Se informa el mensaje **"La contraseña es obligatoria"**.
 
 ---
+
+## Users
+
+### USER-001 - Listado de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-001 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUsers |
+| **Método** | useUsers() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que se obtiene una lista con los usuarios registrados.
+
+**Precondiciones**
+
+- El servicio de listado de usuarios responde correctamente con una lista de usuarios.
+
+**Pasos**
+
+1. Ejecutar `useUsers()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método retorna la lista de usuarios obtenida del servicio.
+
+---
+
+### USER-002 - Error en listado de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-002 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUsers |
+| **Método** | useUsers() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUsers()` expone el error cuando el servicio de listado de usuarios responde con un fallo.
+
+**Precondiciones**
+
+- El servicio de listado de usuarios responde con un error.
+
+**Pasos**
+
+1. Ejecutar `useUsers()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-010 - Obtiene usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-010 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` obtiene el usuario asociado al identificador especificado.
+
+**Precondiciones**
+
+- El servicio de usuarios responde correctamente con la información del usuario solicitado.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método retorna la información del usuario obtenida del servicio.
+
+---
+
+### USER-011 - Error en obtener usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-011 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` expone el error cuando el servicio de usuarios responde con un fallo.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+2. Esperar la resolución de la consulta.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-012 - Consulta deshabilitada
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-012 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUser |
+| **Método** | useUser(id, enabled) |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUser()` no ejecuta la consulta al servicio de usuarios cuando `enabled` es `false`.
+
+**Precondiciones**
+
+- La consulta se ejecuta con el parámetro `enabled` establecido en `false`.
+
+**Pasos**
+
+1. Ejecutar `useUser()`.
+
+**Resultado esperado**
+
+- El método no ejecuta la consulta al servicio de usuarios.
+
+---
+
+### USER-020 - Crear usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-020 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` crea un usuario correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios responde correctamente con la información del usuario creado.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna la información del usuario creada por el servicio.
+
+---
+
+### USER-021 - Error al crear usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-021 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` expone el error cuando el servicio de usuarios responde con un fallo durante la creación.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al crear el usuario.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-022 - Invalidar consulta de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-022 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useCreateUser |
+| **Método** | useCreateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useCreateUser()` invalida la consulta de usuarios cuando la creación del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios crea correctamente el usuario.
+
+**Pasos**
+
+1. Ejecutar `useCreateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---
+
+### USER-030 - Actualizar usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-030 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUser |
+| **Método** | useUpdateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUser()` actualiza el usuario correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios actualiza correctamente el usuario.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna la información actualizada del usuario.
+
+---
+
+### USER-031 - Error al actualizar usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-031 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUser |
+| **Método** | useUpdateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUser()` expone el error cuando el servicio de usuarios responde con un fallo durante la actualización.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al actualizar el usuario.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-032 - Invalidar consulta de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-032 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUser |
+| **Método** | useUpdateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUser()` invalida la consulta de usuarios cuando la actualización del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios actualiza correctamente el usuario.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---
+
+### USER-033 - Actualizar caché del usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-033 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUser |
+| **Método** | useUpdateUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUser()` actualiza la caché cuando la actualización del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios actualiza correctamente el usuario.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método actualiza la caché del usuario con la información retornada por el servicio.
+
+---
+
+### USER-040 - Actualizar parcialmente usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-040 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | usePatchUser |
+| **Método** | usePatchUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `usePatchUser()` actualiza parcialmente el usuario de manera correcta.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización parcial del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `usePatchUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna la información actualizada del usuario.
+
+---
+
+### USER-041 - Error al actualizar parcialmente usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-041 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | usePatchUser |
+| **Método** | usePatchUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `usePatchUser()` expone el error cuando el servicio de usuarios responde con un fallo durante la actualización parcial.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al actualizar parcialmente el usuario.
+
+**Pasos**
+
+1. Ejecutar `usePatchUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-042 - Invalidar consulta de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-042 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | usePatchUser |
+| **Método** | usePatchUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `usePatchUser()` invalida la consulta de usuarios cuando la actualización parcial del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización parcial del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `usePatchUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---
+
+### USER-043 - Invalidar consulta del usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-043 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | usePatchUser |
+| **Método** | usePatchUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `usePatchUser()` invalida la consulta del usuario cuando la actualización parcial del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización parcial del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `usePatchUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['user', user.id]`.
+
+---
+
+### USER-050 - Eliminar usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-050 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useDeleteUser |
+| **Método** | useDeleteUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useDeleteUser()` elimina el usuario de manera correcta.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la eliminación del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `useDeleteUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna le respuesta del servicio de eliminación del usuario.
+
+---
+
+### USER-051 - Error al eliminar usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-051 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useDeleteUser |
+| **Método** | useDeleteUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS|
+
+**Descripción**
+
+Verificar que el método `useDeleteUser()` expone el error cuando el servicio de usuarios responde con un fallo durante la eliminación.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al eliminar el usuario.
+
+**Pasos**
+
+1. Ejecutar `useDeleteUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-052 - Invalidar consulta de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-052 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useDeleteUser |
+| **Método** | useDeleteUser() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS|
+
+**Descripción**
+
+Verificar que el método `useDeleteUser()` invalida la consulta de usuarios cuando la eliminación del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la eliminación del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `useDeleteUser()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---
+
+### USER-060 - Actualizar estado del usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-060 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUserStatus |
+| **Método** | useUpdateUserStatus() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUserStatus()` actualizar el estado del usuario de manera correcta.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización del estado del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUserStatus()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método retorna la información actualizada del usuario.
+
+---
+
+### USER-061 - Error al actualizar estado del usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-061 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUserStatus |
+| **Método** | useUpdateUserStatus() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUserStatus()` expone el error cuando el servicio de usuarios responde con un fallo durante la actualización del estado del usuario.
+
+**Precondiciones**
+
+- El servicio de usuarios responde con un error al actualizar el estado del usuario.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUserStatus()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de usuarios.
+
+---
+
+### USER-062 - Invalidar consulta de usuarios
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-062 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUserStatus |
+| **Método** | useUpdateUserStatus() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUserStatus()` invalida la consulta de usuarios cuando la actualización del estado del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización del estado del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUserStatus()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['users']`.
+
+---
+
+### USER-063 - Invalidar consulta del usuario
+
+| | |
+|---|---|
+| **Requisito** | USER-REQ-063 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useUpdateUserStatus |
+| **Método** | useUpdateUserStatus() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useUpdateUserStatus()` invalida la consulta del usuario cuando la actualización del estado del usuario finaliza correctamente.
+
+**Precondiciones**
+
+- El servicio de usuarios realiza la actualización del estado del usuario correctamente.
+
+**Pasos**
+
+1. Ejecutar `useUpdateUserStatus()`.
+2. Ejecutar la mutación con un usuario válido
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método invalida la consulta identificada por la clave `['user', updatedUser.id]`.
+
+---

@@ -151,36 +151,47 @@ Este plan cubre las pruebas del frontend del proyecto QA Automation Lab.
 
 ### useUsers
 
-- [ ] USER-001 Obtiene listado
-- [ ] USER-002 Error del servidor
+- ✅ USER-001 Obtiene listado
+- ✅ USER-002 Error del servidor
 
 ### useUser
 
-- [ ] USER-010 Obtiene usuario
-- [ ] USER-011 Usuario inexistente
+- ✅ USER-010 Obtiene usuario
+- ✅ USER-011 Usuario inexistente
+- ✅ USER-012 Consulta deshabilitada
 
 ### useCreateUser
 
-- [ ] USER-020 Creación correcta
-- [ ] USER-021 Error de validación
+- ✅ USER-020 Creación correcta
+- ✅ USER-021 Error de validación
+- ✅ USER-022 Invalidar consulta de usuarios
 
 ### useUpdateUser
 
-- [ ] USER-030 Actualización correcta
-- [ ] USER-031 Error del servidor
+- ✅ USER-030 Actualización correcta
+- ✅ USER-031 Error del servidor
+- ✅ USER-032 Invalidar consulta de usuarios
+- ✅ USER-033 Actualiza la consulta del usuario actualizado
 
 ### usePatchUser
 
-- [ ] USER-040 Actualización parcial
-- [ ] USER-041 Payload vacío
+- ✅ USER-040 Actualización parcial correct
+- ✅ USER-041 Error del servidor
+- ✅ USER-042 Invalidar consulta de usuarios
+- ✅ USER-043 Invalidar la consulta del usuario actualizado parcialmente
 
 ### useDeleteUser
 
-- [ ] USER-050 Eliminación lógica
+- ✅ USER-050 Eliminación lógica
+- ✅ USER-051 Error del servidor
+- ✅ USER-052 Invalidar consulta de usuarios
 
 ### useUpdateUserStatus
 
-- [ ] USER-060 Activación correcta
+- ✅ USER-060 Actualización correcta
+- ✅ USER-061 Error del servidor
+- ✅ USER-062 Invalidar consulta de usuarios
+- ✅ USER-063 Invalidar la consulta del usuario activado
 
 ---
 
