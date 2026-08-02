@@ -1,5 +1,5 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import type { PropsWithChildren } from "react"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { PropsWithChildren } from 'react'
 
 export function createQueryWrapper() {
   const queryClient = new QueryClient({
@@ -12,11 +12,9 @@ export function createQueryWrapper() {
 
   function Wrapper({ children }: PropsWithChildren) {
     return (
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     )
   }
 
-  return {wrapper: Wrapper, queryClient}
+  return { wrapper: Wrapper, queryClient }
 }
