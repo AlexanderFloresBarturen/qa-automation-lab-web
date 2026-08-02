@@ -46,6 +46,20 @@ Cada requisito posee un identificador único que permite establecer trazabilidad
 | USER-REQ-020 | El sistema debe crear un usuario | useCreateUser |
 | USER-REQ-021 | El sistema debe propagar el error cuando el servicio no pueda crear el usuario | useCreateUser |
 | USER-REQ-022 | El sistema debe invalidar la consulta de usuarios cuando la creación del usuario sea exitosa | useCreateUser |
-| USER-REQ-010 |
+| USER-REQ-030 | El sistema debe actualizar la información del usuario | useUpdateUser |
+| USER-REQ-031 | El sistema debe propagar el error cuando el servicio no pueda actualizar el usuario | useUpdateUser |
+| USER-REQ-032 | El sistema debe invalidar la consulta de usuario cuando la actualización sea exitosa | useUpdateUser |
+| USER-REQ-033 | El sistema debe actualizar la caché del usuario modificado | useUpdateUser |
+| USER-REQ-040 | El sistema debe actualizar parcialmente la información del usuario | usePatchUser |
+| USER-REQ-041 | El sistema debe propagar el error cuando el servicio no pueda actualizar parcialmente el usuario | usePatchUser |
+| USER-REQ-042 | El sistema debe invalidar la consulta de usuarios cuando la actualización parcial sea exitosa | usePatchUser |
+| USER-REQ-043 | El sistema debe invalidar la consulta del usuario actualizado parcialmente | usePatchUser |
+| USER-REQ-050 | El sistema debe eliminar lógicamente un usuario | useDeleteUser |
+| USER-REQ-051 | El sistema debe propagar el error cuando el servicio no pueda eliminar el usuario | useDeleteUser |
+| USER-REQ-052 | El sistema debe invalidar la consulta de usuarios cuando la eliminación sea exitosa | useDeleteUser |
+| USER-REQ-060 | El sistema debe actualizar el estado del usuario | useUpdateUserStatus |
+| USER-REQ-061 | El sistema debe propagar el error cuando el servicio no pueda actualizar el estado del usuario | useUpdateUserStatus |
+| USER-REQ-062 | El sistema debe invalidar la consulta de usuarios cuando la actualización del estado del usuario sea exitosa | useUpdateUserStatus |
+| USER-REQ-063 | El sistema debe invalidar la consulta del usuario cuando la actualización del estado del usuario sea exitosa | useUpdateUserStatus |
 
 ---

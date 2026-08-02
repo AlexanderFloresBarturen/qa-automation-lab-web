@@ -70,9 +70,9 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 |-------|-------|
 | Proyecto | React Authentication |
 | Entorno | Vitest + jsdom |
-| Fecha | 30-07-2026 |
+| Fecha | 01-08-2026 |
 | Ejecutado por | Alex |
-| Resultado general | 🟡 Pendiente |
+| Resultado general | ✅ Aprobado |
 
 ---
 
@@ -85,6 +85,24 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 | USER-010 | 🟢 PASS | Sin incidencias. |
 | USER-011 | 🟢 PASS | Sin incidencias. |
 | USER-012 | 🟢 PASS | Sin incidencias. |
+| USER-020 | 🟢 PASS | Sin incidencias. |
+| USER-021 | 🟢 PASS | Sin incidencias. |
+| USER-022 | 🟢 PASS | Sin incidencias. |
+| USER-030 | 🟢 PASS | Sin incidencias. |
+| USER-031 | 🟢 PASS | Sin incidencias. |
+| USER-032 | 🟢 PASS | Sin incidencias. |
+| USER-033 | 🟢 PASS | Sin incidencias. |
+| USER-040 | 🟢 PASS | Sin incidencias. |
+| USER-041 | 🟢 PASS | Sin incidencias. |
+| USER-042 | 🟢 PASS | Sin incidencias. |
+| USER-043 | 🟢 PASS | Sin incidencias. |
+| USER-050 | 🟢 PASS | Sin incidencias. |
+| USER-051 | 🟢 PASS | Sin incidencias. |
+| USER-052 | 🟢 PASS | Sin incidencias. |
+| USER-060 | 🟢 PASS | Sin incidencias. |
+| USER-061 | 🟢 PASS | Sin incidencias. |
+| USER-062 | 🟢 PASS | Sin incidencias. |
+| USER-063 | 🟢 PASS | Sin incidencias. |
 
 ---
 
@@ -92,6 +110,6 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 
 | Total | PASS | FAIL | Bloqueados |
 |------:|-----:|-----:|-----------:|
-| 5 | 5 | 0 | 0 |
+| 23 | 23 | 0 | 0 |
 
 ---
