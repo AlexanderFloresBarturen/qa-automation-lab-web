@@ -37,7 +37,17 @@ export function ForgotPassword() {
           </Button>
         </form>
 
-        {isSuccess && <p className={styles.message}>{data.message}</p>}
+        {isSuccess && (
+          <div className={styles.message}>
+            <p>{data.message}</p>
+
+            {data.token && (
+              <Link to={`${PATHS.RESET_PASSWORD}?token=${encodeURIComponent(data.token)}`} className={styles.resetLink}>
+                Restablecer contraseña
+              </Link>
+            )}
+          </div>
+        )}
         {isError && <p className={styles.error}>{error.message}</p>}
 
         <Link className={styles.back} to={PATHS.LOGIN}>
