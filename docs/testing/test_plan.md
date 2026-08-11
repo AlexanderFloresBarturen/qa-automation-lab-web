@@ -145,6 +145,30 @@ Este plan cubre las pruebas del frontend del proyecto QA Automation Lab.
 - ✅ AUTH-041 Correo electrónico inválido
 - ✅ AUTH-042 Constraseña obligatoria
 
+### useForgotPassword
+
+- ✅ AUTH-050 Solicitud exitosa
+- ✅ AUTH-051 Error del servicio
+- ✅ AUTH-052 Respuesta genérica
+
+### useResetPassword
+
+- ✅ AUTH-060 Restablecimiento exitoso
+- ✅ AUTH-061 Error del servicio
+
+### resetPasswordSchema
+
+- ✅ AUTH-070 Menos de 8 caracteres
+- ✅ AUTH-071 Sin mayúscula
+- ✅ AUTH-072 Sin minúscula
+- ✅ AUTH-073 Sin número
+- ✅ AUTH-074 Sin carácter especial
+
+### forgotPasswordSchema
+
+- ✅ AUTH-080 Email válido
+- ✅ AUTH-080 Email inválido
+
 ---
 
 ## 🔴 P0 - Users

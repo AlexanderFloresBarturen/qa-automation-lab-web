@@ -31,6 +31,18 @@ Cada requisito posee un identificador único que permite establecer trazabilidad
 | AUTH-REQ-040 | El sistema debe aceptar un correo electrónico con formato válido y una contraseña no vacía | loginSchema |
 | AUTH-REQ-041 | El sistema debe rechazar un correo electrónico con formato inválido | loginSchema |
 | AUTH-REQ-042 | El sistema debe requerir una contraseña | loginSchema |
+| AUTH-REQ-050 | El sistema debe solicitar correctamente la recuperación de contraseña utilizando el correo electrónico proporcionado | useForgotPassword |
+| AUTH-REQ-051 | El sistema debe propagar el error cuando el servicio de recuperación de contraseña falle | useForgotPassword |
+| AUTH-REQ-052 | El sistema debe mostrar una respuesta genérica cuando se solicite la recuperación para un correo no registrado | useForgotPassword |
+| AUTH-REQ-060 | El sistema debe restablecer correctamente la contraseña utilizando un token válido | useResetPassword |
+| AUTH-REQ-061 | El sistema debe propagar el error cuando el servicio de restablecimiento de contraseña rechace la solicitud | useResetPassword |
+| AUTH-REQ-070 | La nueva contraseña debe tener al menos 8 caracteres | resetPasswordSchema |
+| AUTH-REQ-071 | La nueva contraseña debe contener una mayúscula | resetPasswordSchema |
+| AUTH-REQ-072 | La nueva contraseña debe contener una minúscula | resetPasswordSchema |
+| AUTH-REQ-073 | La nueva contraseña debe contener un número | resetPasswordSchema |
+| AUTH-REQ-074 | La nueva contraseña debe contener un carácter especial permitido | resetPasswordSchema |
+| AUTH-REQ-080 | El sistema debe aceptar un correo con formato válido | forgotPasswordSchema |
+| AUTH-REQ-081 | El sistema debe rechazar un correo con formato inválido | forgotPasswordSchema |
 
 ---
 

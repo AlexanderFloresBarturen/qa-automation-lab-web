@@ -1,2 +1,6 @@
 export { loginSchema } from './loginSchema'
 export type { LoginFormData } from './loginSchema'
+export { forgotPasswordSchema } from './forgotPasswordSchema'
+export type { ForgotPasswordFormData } from './forgotPasswordSchema'
+export { resetPasswordSchema } from './resetPasswordSchema'
+export type { ResetPasswordFormData } from './resetPasswordSchema'

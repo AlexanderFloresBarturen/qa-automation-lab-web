@@ -266,7 +266,7 @@ Verificar que el método `logout()` elimina el token de acceso almacenado al cer
 
 ---
 
-#### AUTH-030 - Login exitoso
+### AUTH-030 - Login exitoso
 
 | | |
 |---|---|
@@ -297,7 +297,7 @@ Verificar que el método `login()` retorna correctamente la respuesta del servic
 
 ---
 
-#### AUTH-031 - Error de autenticación
+### AUTH-031 - Error de autenticación
 
 | | |
 |---|---|
@@ -328,7 +328,7 @@ Verificar que el método `login()` propaga el error cuando el servicio de autent
 
 ---
 
-#### AUTH-032 - Guarda el token
+### AUTH-032 - Guarda el token
 
 | | |
 |---|---|
@@ -359,7 +359,7 @@ Verificar que el método `login()` almacena el token de acceso recibido después
 
 ---
 
-#### AUTH-040 - Credenciales válidas
+### AUTH-040 - Credenciales válidas
 
 | | |
 |---|---|
@@ -389,7 +389,7 @@ Verificar que el esquema valida correctamente unas credenciales con un correo el
 
 ---
 
-#### AUTH-041 - Correo electrónico inválido
+### AUTH-041 - Correo electrónico inválido
 
 | | |
 |---|---|
@@ -419,7 +419,7 @@ Verificar que el esquema rechaza un correo electrónico con un formato inválido
 
 ---
 
-#### AUTH-042 - Contraseña obligatoria
+### AUTH-042 - Contraseña obligatoria
 
 | | |
 |---|---|
@@ -446,6 +446,387 @@ Verificar que el esquema requiere una contraseña para validar las credenciales.
 
 - La validación falla.
 - Se informa el mensaje **"La contraseña es obligatoria"**.
+
+---
+
+### AUTH-050 - Solicitar recuperación de contraseña
+
+| | |
+|---|---|
+| **Requisito**	| AUTH-REQ-050 |
+| **Prioridad**	| 🔴 P0 |
+| **Componente** | useForgotPassword |
+| **Método** | useForgotPassword() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método useForgotPassword() solicita correctamente la recuperación de contraseña utilizando el correo electrónico proporcionado.
+
+**Precondiciones**
+
+- El servicio de recuperación de contraseña está disponible.
+- El correo electrónico proporcionado corresponde a un usuario registrado.
+
+**Pasos**
+
+1. Ejecutar useForgotPassword().
+2. Ejecutar la mutación con un correo electrónico válido.
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método envía el correo electrónico proporcionado al servicio de recuperación de contraseña.
+- El método retorna la respuesta proporcionada por el servicio.
+
+---
+
+### AUTH-051 - Error en recuperación de contraseña
+
+| | |
+|---|---|
+| **Requisito**	| AUTH-REQ-051 |
+| **Prioridad**	| 🔴 P0 |
+| **Componente** | useForgotPassword |
+| **Método** | useForgotPassword() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método useForgotPassword() expone el error cuando el servicio de recuperación de contraseña responde con un fallo.
+
+**Precondiciones**
+
+- El servicio de recuperación de contraseña responde con un error.
+
+**Pasos**
+
+1. Ejecutar useForgotPassword().
+2. Ejecutar la mutación con un correo electrónico válido.
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de recuperación de contraseña.
+
+---
+
+### AUTH-052 - Recuperación con correo no registrado
+
+| | |
+|---|---|
+| Requisito	| AUTH-REQ-052 |
+| Prioridad	| 🔴 P0 |
+| Componente | useForgotPassword |
+| Método | useForgotPassword() |
+| Automatización | Pendiente |
+| Estado | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método useForgotPassword() maneja correctamente una solicitud realizada con un correo electrónico no registrado.
+
+**Precondiciones**
+
+- El correo electrónico proporcionado no corresponde a un usuario registrado.
+- El servicio de recuperación de contraseña responde correctamente con un mensaje genérico.
+
+**Pasos**
+
+1. Ejecutar useForgotPassword().
+2. Ejecutar la mutación con un correo electrónico no registrado.
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+El método retorna la respuesta genérica proporcionada por el servicio.
+La respuesta no revela si el correo electrónico está asociado a un usuario registrado.
+
+---
+
+### AUTH-060 - Restablecer contraseña
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-060 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useResetPassword |
+| **Método** | useResetPassword() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useResetPassword()` restablece correctamente la contraseña utilizando un token válido.
+
+**Precondiciones**
+
+- El servicio de restablecimiento de contraseña está disponible.
+- Se dispone de un token válido.
+- La nueva contraseña cumple con los requisitos de seguridad establecidos.
+
+**Pasos**
+
+1. Ejecutar `useResetPassword()`.
+2. Ejecutar la mutación con un token válido y una nueva contraseña válida.
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método envía el token y la nueva contraseña al servicio de restablecimiento.
+- El método retorna la respuesta proporcionada por el servicio.
+
+---
+
+### AUTH-061 - Error al restablecer contraseña
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-061 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | useResetPassword |
+| **Método** | useResetPassword() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que el método `useResetPassword()` expone el error cuando el servicio de restablecimiento de contraseña rechaza la solicitud.
+
+**Precondiciones**
+
+- El servicio de restablecimiento de contraseña responde con un error.
+- Se dispone de un token y una nueva contraseña válidos.
+
+**Pasos**
+
+1. Ejecutar `useResetPassword()`.
+2. Ejecutar la mutación con un token y una nueva contraseña válidos.
+3. Esperar la finalización de la mutación.
+
+**Resultado esperado**
+
+- El método expone el error retornado por el servicio de restablecimiento de contraseña.
+
+---
+
+### AUTH-070 - Contraseña con longitud mínima
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-070 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | resetPasswordSchema |
+| **Método** | resetPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que `resetPasswordSchema` rechaza una contraseña que tenga menos de 8 caracteres.
+
+**Precondiciones**
+
+- Se dispone de una contraseña con menos de 8 caracteres.
+
+**Pasos**
+
+1. Ejecutar `resetPasswordSchema.safeParse()` con una contraseña de menos de 8 caracteres.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que la contraseña no cumple con la longitud mínima requerida.
+
+---
+
+### AUTH-071 - Contraseña sin mayúscula
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-071 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | resetPasswordSchema |
+| **Método** | resetPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que `resetPasswordSchema` rechaza una contraseña que no contenga al menos una letra mayúscula.
+
+**Precondiciones**
+
+- Se dispone de una contraseña que cumple las demás reglas de seguridad pero no contiene una letra mayúscula.
+
+**Pasos**
+
+1. Ejecutar `resetPasswordSchema.safeParse()` con una contraseña sin mayúsculas.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que la contraseña debe contener al menos una letra mayúscula.
+
+---
+
+### AUTH-072 - Contraseña sin minúscula
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-072 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | resetPasswordSchema |
+| **Método** | resetPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que `resetPasswordSchema` rechaza una contraseña que no contenga al menos una letra minúscula.
+
+**Precondiciones**
+
+- Se dispone de una contraseña que cumple las demás reglas de seguridad pero no contiene una letra minúscula.
+
+**Pasos**
+
+1. Ejecutar `resetPasswordSchema.safeParse()` con una contraseña sin minúsculas.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que la contraseña debe contener al menos una letra minúscula.
+
+---
+
+### AUTH-073 - Contraseña sin número
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-073 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | resetPasswordSchema |
+| **Método** | resetPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que `resetPasswordSchema` rechaza una contraseña que no contenga al menos un número.
+
+**Precondiciones**
+
+- Se dispone de una contraseña que cumple las demás reglas de seguridad pero no contiene ningún número.
+
+**Pasos**
+
+1. Ejecutar `resetPasswordSchema.safeParse()` con una contraseña sin números.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que la contraseña debe contener al menos un número.
+
+---
+
+### AUTH-074 - Contraseña sin carácter especial permitido
+
+| | |
+|---|---|
+| **Requisito** | AUTH-REQ-074 |
+| **Prioridad** | 🔴 P0 |
+| **Componente** | resetPasswordSchema |
+| **Método** | resetPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que `resetPasswordSchema` rechaza una contraseña que no contenga al menos un carácter especial permitido.
+
+**Precondiciones**
+
+- Se dispone de una contraseña que cumple las demás reglas de seguridad pero no contiene ninguno de los caracteres especiales permitidos.
+
+**Pasos**
+
+1. Ejecutar `resetPasswordSchema.safeParse()` con una contraseña sin caracteres especiales permitidos.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que la contraseña debe contener al menos un carácter especial permitido.
+
+---
+
+### AUTH-080 — Email válido
+
+| | |
+|---|---|
+| **Requisito**	| AUTH-REQ-080 |
+| **Prioridad**	| 🔴 P0 |
+| **Componente** | forgotPasswordSchema |
+| **Método** | forgotPasswordSchema.safeParse() |
+| **Automatización** | Pendiente |
+| **Estado** | 🟢 PASS |
+
+**Descripción**
+
+Verificar que forgotPasswordSchema acepta un correo electrónico válido.
+
+**Precondiciones**
+
+- Se dispone de un correo electrónico con formato válido.
+
+**Pasos**
+
+1. Ejecutar forgotPasswordSchema.safeParse() con un correo electrónico válido.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación es exitosa.
+- El correo electrónico es aceptado por el schema.
+
+---
+
+### AUTH-081 — Email inválido
+
+| | |
+|---|---|
+| Requisito | AUTH-REQ-081 |
+| Prioridad	| 🔴 P0 |
+| Componente | forgotPasswordSchema |
+| Método | forgotPasswordSchema.safeParse() |
+| Automatización | Pendiente |
+| Estado | 🟢 PASS |
+
+
+**Descripción**
+
+Verificar que forgotPasswordSchema rechaza un correo electrónico con formato inválido.
+
+**Precondiciones**
+
+- Se dispone de un correo electrónico con formato inválido.
+
+**Pasos**
+
+1. Ejecutar forgotPasswordSchema.safeParse() con un correo electrónico inválido.
+2. Evaluar el resultado de la validación.
+
+**Resultado esperado**
+
+- La validación falla.
+- El resultado indica que el correo electrónico no es válido.
 
 ---
 

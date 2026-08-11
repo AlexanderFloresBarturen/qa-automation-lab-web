@@ -27,7 +27,7 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 |-------|-------|
 | Proyecto | React Authentication |
 | Entorno | Vitest + jsdom |
-| Fecha | 19-07-2026 |
+| Fecha | 10-08-2026 |
 | Ejecutado por | Alex |
 | Resultado general | ✅ Aprobado |
 
@@ -51,6 +51,18 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 | AUTH-040 | 🟢 PASS | Sin incidencias. |
 | AUTH-041 | 🟢 PASS | Sin incidencias. |
 | AUTH-042 | 🟢 PASS | Sin incidencias. |
+| AUTH-050 | 🟢 PASS | Sin incidencias. |
+| AUTH-051 | 🟢 PASS | Sin incidencias. |
+| AUTH-052 | 🟢 PASS | Sin incidencias. |
+| AUTH-060 | 🟢 PASS | Sin incidencias. |
+| AUTH-061 | 🟢 PASS | Sin incidencias. |
+| AUTH-070 | 🟢 PASS | Sin incidencias. |
+| AUTH-071 | 🟢 PASS | Sin incidencias. |
+| AUTH-072 | 🟢 PASS | Sin incidencias. |
+| AUTH-073 | 🟢 PASS | Sin incidencias. |
+| AUTH-074 | 🟢 PASS | Sin incidencias. |
+| AUTH-080 | 🟢 PASS | Sin incidencias. |
+| AUTH-081 | 🟢 PASS | Sin incidencias. |
 
 ---
 
@@ -58,7 +70,7 @@ Los resultados se actualizarán conforme se implementen y ejecuten las pruebas.
 
 | Total | PASS | FAIL | Bloqueados |
 |------:|-----:|-----:|-----------:|
-| 14 | 14 | 0 | 0 |
+| 26 | 26 | 0 | 0 |
 
 ---
 
