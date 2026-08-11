@@ -3,5 +3,5 @@ export type {
   ForgotPasswordRequest,
   ForgotPasswordResponse,
   ResetPasswordRequest,
-  ResetPasswordResponse
+  ResetPasswordResponse,
 } from './passwordRecovery'

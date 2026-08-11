@@ -42,7 +42,10 @@ export function ForgotPassword() {
             <p>{data.message}</p>
 
             {data.token && (
-              <Link to={`${PATHS.RESET_PASSWORD}?token=${encodeURIComponent(data.token)}`} className={styles.resetLink}>
+              <Link
+                to={`${PATHS.RESET_PASSWORD}?token=${encodeURIComponent(data.token)}`}
+                className={styles.resetLink}
+              >
                 Restablecer contraseña
               </Link>
             )}
